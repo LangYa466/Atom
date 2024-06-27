@@ -1,0 +1,9 @@
+# Project exclude paths
+/target/
+/.idea/
+
+test_natives
+/test_run/
+MCP.iml
+
+out
