@@ -44,7 +44,7 @@ public class ModuleManager implements Wrapper {
         addModule(new Blink());
         // addModule(new Velocity());
         // addModule(new PostProcessing());
-        // addModule(new NoSlow());
+        addModule(new NoSlow());
         addModule(new Speed());
         addModule(new ProjectileAura());
 

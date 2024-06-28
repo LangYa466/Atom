@@ -20,6 +20,11 @@ public class MoveUtil implements Wrapper {
         return Math.sqrt(motionX * motionX + motionZ * motionZ);
     }
 
+    public static void stop() {
+        mc.thePlayer.motionX = 0;
+        mc.thePlayer.motionZ = 0;
+    }
+
     public static float getMoveYaw() {
         float moveYaw = mc.thePlayer.rotationYaw;
         if (mc.thePlayer.moveForward != 0F && mc.thePlayer.moveStrafing == 0F) {

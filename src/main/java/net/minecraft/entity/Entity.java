@@ -7,6 +7,7 @@ import java.util.concurrent.Callable;
 
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
+import net.minecraft.client.Minecraft;
 import org.atom.Client;
 import org.atom.client.event.player.EventMoveUpdate;
 import net.minecraft.block.Block;
@@ -52,6 +53,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import org.atom.client.event.player.EventStrafe;
 
 public abstract class Entity implements ICommandSender
 {
@@ -1227,8 +1229,9 @@ public abstract class Entity implements ICommandSender
     /**
      * Used in both water and by flying objects
      */
-    public void moveFlying(float strafe, float forward, float friction)
-    {
+    public void moveFlying(float strafe, float forward, float friction) {
+        boolean player = this == Minecraft.getMinecraft().thePlayer;
+        float yaw = this.rotationYaw;
         EventMoveUpdate eventMoveUpdate = new EventMoveUpdate(strafe, forward, friction, this.rotationYaw, this.rotationPitch);
         if (this instanceof EntityPlayerSP && Client.getInstance().getEventManager() != null) {
             Client.getInstance().getEventManager().call(eventMoveUpdate);
@@ -1236,9 +1239,20 @@ public abstract class Entity implements ICommandSender
 
         if (eventMoveUpdate.isCancelled()) return;
 
-        strafe = eventMoveUpdate.getStrafe();
-        forward = eventMoveUpdate.getForward();
-        friction = eventMoveUpdate.getFriction();
+        if (player) {
+            final EventStrafe event = new EventStrafe(forward, strafe, friction, rotationYaw);
+
+            Client.getInstance().getEventManager().call(event);
+
+            if (event.isCancelled()) {
+                return;
+            }
+
+            forward = event.getForward();
+            strafe = event.getStrafe();
+            friction = event.getFriction();
+            yaw = event.getYaw();
+        }
 
         float f = strafe * strafe + forward * forward;
 
@@ -1254,8 +1268,8 @@ public abstract class Entity implements ICommandSender
             f = friction / f;
             strafe = strafe * f;
             forward = forward * f;
-            float f1 = MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F);
-            float f2 = MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F);
+            float f1 = MathHelper.sin(yaw * (float) Math.PI / 180.0F);
+            float f2 = MathHelper.cos(yaw * (float) Math.PI / 180.0F);
             this.motionX += (double)(strafe * f2 - forward * f1);
             this.motionZ += (double)(forward * f2 + strafe * f1);
         }
