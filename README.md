@@ -1,4 +1,5 @@
 # Atom
+## 我几乎每个抄袭的类都有加上作者名称!!!
 感谢:
 https://github.com/ViaVersionMCP/ViaMCP
 https://github.com/cubk1/EventManager
