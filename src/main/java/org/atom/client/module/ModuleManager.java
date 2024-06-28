@@ -8,6 +8,7 @@ import org.atom.api.gui.click.ClickGuiScreen;
 import org.atom.api.shader.PostProcessing;
 import org.atom.client.event.client.EventKey;
 import org.atom.client.module.impl.combat.KillAura;
+import org.atom.client.module.impl.combat.ProjectileAura;
 import org.atom.client.module.impl.combat.Velocity;
 import org.atom.client.module.impl.move.NoSlow;
 import org.atom.client.module.impl.move.Speed;
@@ -44,7 +45,8 @@ public class ModuleManager implements Wrapper {
         // addModule(new Velocity());
         // addModule(new PostProcessing());
         // addModule(new NoSlow());
-        // addModule(new Speed());
+        addModule(new Speed());
+        addModule(new ProjectileAura());
 
         Client.getInstance().getEventManager().register(this);
     }

@@ -19,8 +19,7 @@ public class Start {
         // Currently supported Linux and Windows
         System.setProperty("org.lwjgl.librarypath", new File("../test_natives/" + (System.getProperty("os.name").startsWith("Windows") ? "windows" : "linux")).getAbsolutePath());
 
-        Main.main(concat(new String[]{"--version", "MavenMCP","--username","Lang7a", "--accessToken", "eyJraWQiOiJhYzg0YSIsImFsZyI6IkhTMjU2In0.eyJ4dWlkIjoiMjUzNTQwNTg0MDM3NTU4MyIsImFnZyI6IkFkdWx0Iiwic3ViIjoiNzFkZmUyODYtZjAyMi00ZjE2LTliMzUtMGFhNTE2MTgzOGY0IiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsidHdvZmFjdG9yYXV0aCIsIm1zYW1pZ3JhdGlvbl9zdGFnZTQiLCJvcmRlcnNfMjAyMiIsIm11bHRpcGxheWVyIl0sInByb2ZpbGVzIjp7Im1jIjoiNzlhMDFlZDctY2QwMS00ZTI1LWEyYzQtZjRlOWUyYmQ5NmJlIn0sInBsYXRmb3JtIjoiVU5LTk9XTiIsIm5iZiI6MTcxODk1OTIxNCwiZXhwIjoxNzE5MDQ1NjE0LCJpYXQiOjE3MTg5NTkyMTR9.J3U0rtDvsHrgYXCnbrMIhZFqUPbhmbFqJrXQMNV0C3U",
-                "--uuid","79a01ed7cd014e25a2c4f4e9e2bd96be",
+        Main.main(concat(new String[]{"--version", "MavenMCP","--username","LangYa466",
                 "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
     }
 
