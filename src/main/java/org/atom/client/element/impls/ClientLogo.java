@@ -14,7 +14,7 @@ public class ClientLogo extends Element {
     @Override
     public void draw() {
         setXY(5,5);
-        setWH(FontManager.F40.getWidth(Client.name),FontManager.F40.getHeight());
+        setWH(FontManager.F40.getStringWidth(Client.name),FontManager.F40.getHeight());
         FontManager.F40.drawStringWithShadow(Client.name, x, y,-1);
     }
 

@@ -35,7 +35,8 @@ public class HUD extends Module {
     @EventTarget
     public void onRender2D(EventRender2D event) {
 
-        FontManager.F40.drawStringWithShadow("Atom Client", 5, 5, -1);
+        FontManager.F40.drawStringWithShadow("Atom Client | 原神", 5, 5, -1);
+
 
         if(array.getValue()){
             int width = event.getScaledresolution().getScaledWidth();
@@ -46,9 +47,9 @@ public class HUD extends Module {
                     enabledModules.add(m);
                 }
             }
-            enabledModules.sort((o1, o2) -> FontManager.F18.getWidth(o2.getName()) - FontManager.F18.getWidth(o1.getName()));
+            enabledModules.sort((o1, o2) -> FontManager.F18.getStringWidth(o2.getName()) - FontManager.F18.getStringWidth(o1.getName()));
             for (Module module : enabledModules) {
-                int moduleWidth = FontManager.F18.getWidth(module.getName());
+                int moduleWidth = FontManager.F18.getStringWidth(module.getName());
                 FontManager.F18.drawStringWithShadow(module.getName(), width - moduleWidth - 4, y, -1);
                 y += (int) (FontManager.F18.getHeight() + spacing.getValue());
             }

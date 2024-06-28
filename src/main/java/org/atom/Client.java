@@ -3,6 +3,7 @@ package org.atom;
 import de.florianmichael.viamcp.ViaMCP;
 import org.atom.api.event.EventManager;
 import lombok.Getter;
+import org.atom.api.font.FontManager;
 import org.atom.api.notification.NotificationManager;
 import org.atom.client.command.CommandManager;
 import org.atom.client.config.ConfigManager;
@@ -42,6 +43,7 @@ public class Client {
         commandManager = new CommandManager();
         elementManager = new ElementManager();
         configManager = new ConfigManager();
+        FontManager.init();
 
         try {
             ViaMCP.create();

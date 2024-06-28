@@ -58,7 +58,7 @@ public class Notification {
     public void render(ScaledResolution sr, int index) {
         val font = FontManager.F18;
 
-        float width = (float) (font.getWidth(content) + 5 * 2);
+        float width = (float) (font.getStringWidth(content) + 5 * 2);
         float targetY = sr.getScaledHeight() - (height + 2) * (index + 1);
         if (!initialized) {
             animationX.setStartValue(sr.getScaledWidth());

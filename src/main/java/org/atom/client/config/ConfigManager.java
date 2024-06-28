@@ -29,6 +29,7 @@ public class ConfigManager {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     public static final File fold = new File(Minecraft.getMinecraft().mcDataDir, Client.name);
     public File dir = new File(fold, "config");
+    public File fontsDir = new File(fold, "fonts");
     public ModuleConfig moduleConfig;
     @Getter
     public boolean firstStart;
@@ -40,6 +41,9 @@ public class ConfigManager {
         }
         if (!dir.exists()) {
             dir.mkdir();
+        }
+        if (!fontsDir.exists()) {
+            fontsDir.mkdir();
         }
         moduleConfig = new ModuleConfig("modules.json");
         configs.add(moduleConfig);

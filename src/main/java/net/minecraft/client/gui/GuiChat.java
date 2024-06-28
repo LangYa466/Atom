@@ -304,7 +304,7 @@ public class GuiChat extends GuiScreen
             if (MouseUtil.isHovering(element.getX(), element.getY(), element.getWidth(), element.getHeight(), mouseX, mouseY)) {
 
                 RenderUtil.drawBorder(element.getX() - 4, element.getY() - 4,  element.getWidth() + 8, element.getHeight() + 8, 1, -1);
-                FontManager.F14.drawCenteredStringWithShadow(String.format("PosX: %s PosY: %s", element.getX(), element.getY()), element.getX() + 37, element.getY() - 12, -1);
+                FontManager.F14.drawCenteredString(String.format("PosX: %s PosY: %s", element.getX(), element.getY()), element.getX() + 37, element.getY() - 12, -1);
             }
         }
         super.drawScreen(mouseX, mouseY, partialTicks);
