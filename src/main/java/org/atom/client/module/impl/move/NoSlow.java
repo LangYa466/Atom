@@ -50,6 +50,7 @@ public class NoSlow extends Module {
     @EventTarget
     public void onMove(EventMotionUpdate event) {
         setTag("Grim");
+        /*
         if (!mc.isSingleplayer()) {
             if (e.isPre()) {
                 if (mc.thePlayer == null || mc.theWorld == null || mc.thePlayer.getHeldItem() == null) return;
@@ -122,5 +123,7 @@ public class NoSlow extends Module {
             }
             break;
         }
+
+         */
     }
 }
